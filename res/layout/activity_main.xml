@@ -10,7 +10,59 @@
     tools:context="com.example.hellolibs.MainActivity">
 
     <TextView
+        android:id="@+id/text_libgpiod_version"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Hello World!" />
+
+    <Spinner
+        android:id="@+id/spinner_gpio_bank"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:prompt="@string/spinner_bank_prompt"
+        android:layout_below="@id/text_libgpiod_version"
+        android:layout_alignParentLeft="true"
+        android:layout_toLeftOf="@+id/spinner_gpio_line" />
+
+    <Spinner
+        android:id="@+id/spinner_gpio_line"
+        android:prompt="@string/spinner_line_prompt"
+        android:layout_width="96dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/text_libgpiod_version"
+        android:layout_alignParentRight="true" />
+
+    <Button
+        android:id="@+id/button_gpio_get"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/spinner_gpio_bank"
+        android:layout_alignParentLeft="true"
+        android:text="Change to Input Direction and Get Value" />
+
+    <Button
+        android:id="@+id/button_gpio_set"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/button_gpio_get"
+        android:layout_alignParentLeft="true"
+        android:layout_toLeftOf="@+id/edit_gpio_set_value"
+        android:text="Change to Output Direction and Set Value" />
+
+    <EditText
+        android:id="@+id/edit_gpio_set_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/button_gpio_get"
+        android:layout_alignParentRight="true" >
+    </EditText>
+
+    <TextView
+        android:id="@+id/text_gpio_output"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/button_gpio_set"
+        android:layout_alignParentLeft="true"
+        android:text="" />
+
 </RelativeLayout>
