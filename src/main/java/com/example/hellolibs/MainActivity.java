@@ -72,11 +72,12 @@ public class MainActivity extends Activity {
             public void onClick(View v) {
                 int gpionum_bank = gpio_bank_spinner.getSelectedItemPosition() - 1;
                 int gpionum_line = gpio_line_spinner.getSelectedItemPosition() - 1;
-                if(gpio_set_value.getText().toString() == "1" || gpio_set_value.getText().toString() == "0") {
-                  int gpionum_set_value = Integer.parseInt(gpio_set_value.getText().toString());
+                String value_text = gpio_set_value.getText().toString();
+                if (value_text.equals("")) {
+                   gpio_output_tv.setText("Please set value, 1 is pull high, 0 is pull low");
+               } else {
+                  int gpionum_set_value = Integer.parseInt(value_text);
                   gpio_output_tv.setText("Output: " + setGpioInfo(gpionum_bank, gpionum_line, gpionum_set_value));
-                } else {
-                  gpio_output_tv.setText("Please set value, 1 is pull high, 0 is pull low");
                 }
             }
         });
